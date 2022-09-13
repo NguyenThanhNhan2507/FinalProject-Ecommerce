@@ -4,7 +4,7 @@ module.exports = (err, req, res, next) =>{
     err.statusErr = err.statusErr || 500
     err.message = err.message || 'Loi may chu'
     
-    if(err.name === "CastError"){
+    if(err.name === "Servererror"){
         const message = `Không tìm thấy tài nguyên với id không hợp lệ ${err.path}`
         err = new ErrorHandle(message,404)
     }
