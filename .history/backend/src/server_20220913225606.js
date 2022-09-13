@@ -24,4 +24,3 @@ process.on("Khong the xu ly", (err) =>{
     server.close(() =>{
         process.exit(1);
     });
-});

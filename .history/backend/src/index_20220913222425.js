@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const ErrorHandle = require('./middleware/error');
+const ErrorHandle = require('./untils/errorHandle');
 
 app.use(express.json())
 

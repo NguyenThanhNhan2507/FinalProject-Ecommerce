@@ -1,10 +1,10 @@
 const Product = require('../models/ProductDbModel.js');
 const ErrorHandle = require('../untils/errorHandle.js');
-const errorServer = require('../middleware/errorServer')
+
 
 
 //Admin có thể tạo sản phẩm
-exports.taoSanPham = errorServer(async (req, res, next) =>{
+exports.taoSanPham = async (req, res, next) =>{
     const product = await Product.create(req.body);
 
     res.status(201).json({
@@ -12,7 +12,7 @@ exports.taoSanPham = errorServer(async (req, res, next) =>{
         product
     })
 
-});
+};
 
 
 // xem tất cả sản phẩm
@@ -25,10 +25,13 @@ exports.xemSanPham = async (req, res)=>{
 };
 
 // Admin có thể cập nhật sản phẩm
-exports.capNhatSanPham = errorServer(async (req, res, next) => {
+exports.capNhatSanPham = async (req, res) => {
     let updateProduct = await Product.findById(req.params.id)
     if (!updateProduct) {
-        return next(new ErrorHandle('Khong tim thay san pham',404))
+        return res.status(500).json({
+            success: false,
+            message: "Khong tim thay san pham"
+        })
     }
     updateProduct = await Product.findByIdAndUpdate(req.params.id,req.body,{
         new: true,
@@ -39,24 +42,27 @@ exports.capNhatSanPham = errorServer(async (req, res, next) => {
         success: true,
         updateProduct
     })
-})
+}
 
 // Admin có thể xóa sản phẩm
-exports.xoaSanPham = errorServer(async (req, res, next) =>{
+exports.xoaSanPham = async (req, res, next) =>{
     const deleteProduct = await Product.findById(req.params.id)
     if (!deleteProduct) {
-        return next(new ErrorHandle('Khong tim thay san pham',404))
+        return res.status(500).json({
+            success: false,
+            message: 'Khong tim thay san pham'
+        })
     }
     await deleteProduct.remove();
     res.status(200).json({
         success: true,
         message: 'San pham da duoc xoa'
     })
-});
+};
 
 
 // xem xét 1 sản phẩm
-exports.xemXetSanPham = errorServer(async (req, res, next) =>{
+exports.xemXetSanPham = async (req, res, next) =>{
     const getProduct = await Product.findById(req.params.id)
     if (!getProduct) {
         return next(new ErrorHandle('Khong tim thay san pham',404))
@@ -65,4 +71,4 @@ exports.xemXetSanPham = errorServer(async (req, res, next) =>{
         success: true,
         getProduct
     })
-});
+};
