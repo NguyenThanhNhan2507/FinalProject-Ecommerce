@@ -44,13 +44,13 @@ exports.nguoiDungDangNhap = errorServer(async (req, res, next) => {
 })
 
 // đăng xuất
-// exports.nguoiDungDangXuat = errorServer( async, (req, res, next)=>{
-//       res.cookie("token", null, {
-//         expires: new Date(Date.now()),
-//         httpOnly: true
-//       })
-//       res.status(200).json({
-//         sucess: true,
-//         message: "dang xuat thanh cong"
-//       })
-// })
+exports.nguoiDungDangXuat = errorServer( async, (req, res, next)=>{
+      res.cookie("token", null, {
+        expires: new Date.now(),
+        httpOnly: true
+      })
+      res.status(200).json({
+        sucess: true,
+        message: "dang xuat thanh cong"
+      })
+})
