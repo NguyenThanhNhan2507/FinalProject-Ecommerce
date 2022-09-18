@@ -46,12 +46,6 @@ exports.nguoiDungDangNhap = errorServer(async (req, res, next) => {
 // đăng xuất
 exports.nguoiDungDangXuat = errorServer(async(req,res,next)=>{
     res.cookie("token", null), {
-      expires: new Date(Date.now()),
-      httpOne: true
+      
     }
-
-    res.status(200).json({
-      success: true,
-      message: "Đăng xuất thành công"
-    })
 })

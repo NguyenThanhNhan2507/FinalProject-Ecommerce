@@ -51,7 +51,6 @@ exports.nguoiDungDangXuat = errorServer(async(req,res,next)=>{
     }
 
     res.status(200).json({
-      success: true,
-      message: "Đăng xuất thành công"
+      
     })
 })
