@@ -54,5 +54,6 @@ exports.nguoiDungDangXuat = errorServer(async (req,res,next)=>{
       success: true,
       message: "Đăng xuất thành công"
     })
-    
+
+    console.log(this.nguoiDungDangXuat)
 })
