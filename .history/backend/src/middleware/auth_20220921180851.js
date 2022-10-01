@@ -8,6 +8,7 @@ const User = require('../models/UsersModel')
 // người dùng
 exports.xacThucNguoiDung = errorServer(async (req,res,next) =>{
         const {token} = req.cookies;
+
         if (!token) {
             return next(new ErrorHandle("vui long dang nhap", 401))
         }
@@ -17,14 +18,3 @@ exports.xacThucNguoiDung = errorServer(async (req,res,next) =>{
 
         next();
 });
-
-// admin
-
-exports.xacThucAdmin = (...roles) =>{
-  return(req,res,next) =>{
-    if(!roles.includes(req.user.role)){
-        return next(new ErrorHandle(`${req.user.role} khong the truy cap`))
-    }
-    next()
-  }
-}

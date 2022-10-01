@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 router.route('/products').get(xemSanPham)
-router.route('/product/new').post(xacThucNguoiDung,xacThucAdmin("admin"),taoSanPham)
+router.route('/product/new').post(xacThucNguoiDung,taoSanPham,xacThucAdmin("admin"))
 router.route('/product/:id').put(capNhatSanPham).delete(xoaSanPham).get(xemXetSanPham)
 
 
