@@ -151,15 +151,15 @@ exports.xoaDanhGia = errorServer(async (req, res, next) => {
     if (danhGia.length === 0) {
       ratings = 0;
     } else {
-      ratings = avg / danhGia.length;
+      ratings = avg / reviews.length;
     }
   
-    const soLuongDanhGia = danhGia.length;
+    const soLuongDanhGia = reviews.length;
   
     await Product.findByIdAndUpdate(
       req.query.idOfProduct,
       {
-        danhGia,
+        reviews,
         ratings,
         soLuongDanhGia,
       },

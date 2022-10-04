@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllProduct, taoSanPham, xemSanPham, capNhatSanPham, xoaSanPham, xemXetSanPham, danhGiaSanPham, danhGiaOneSanPham, xoaDanhGia } = require('../controllers/ProductContrl');
+const { getAllProduct, taoSanPham, xemSanPham, capNhatSanPham, xoaSanPham, xemXetSanPham, danhGiaSanPham, danhGiaOneSanPham } = require('../controllers/ProductContrl');
 const { xacThucNguoiDung, xacThucAdmin } = require('../middleware/auth');
 
 const router = express.Router();
@@ -10,5 +10,5 @@ router.route('/product/new').post(xacThucNguoiDung,xacThucAdmin("admin"),taoSanP
 router.route('/product/:id').put(xacThucNguoiDung,xacThucAdmin("admin"),capNhatSanPham).delete(xacThucNguoiDung,xacThucAdmin("admin"),xoaSanPham).get(xemXetSanPham)
 
 router.route('/product/review').post(xacThucNguoiDung,danhGiaSanPham)
-router.route('/review').get(danhGiaOneSanPham).delete(xacThucNguoiDung,xacThucAdmin("admin"),xoaDanhGia)
+router.route('/review').get(danhGiaOneSanPham)
 module.exports = router

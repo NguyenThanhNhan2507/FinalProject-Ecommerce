@@ -136,30 +136,30 @@ exports.xoaDanhGia = errorServer(async (req, res, next) => {
       return next(new ErrorHandle("Product not found with this id", 404));
     }
   
-    const danhGia = product.reviews.filter(
+    const reviews = product.reviews.filter(
       (rev) => rev._id.toString() !== req.query.id.toString()
     );
   
     let avg = 0;
   
-    danhGia.forEach((rev) => {
+    reviews.forEach((rev) => {
       avg += rev.rating;
     });
   
     let ratings = 0;
   
-    if (danhGia.length === 0) {
+    if (reviews.length === 0) {
       ratings = 0;
     } else {
-      ratings = avg / danhGia.length;
+      ratings = avg / reviews.length;
     }
   
-    const soLuongDanhGia = danhGia.length;
+    const soLuongDanhGia = reviews.length;
   
     await Product.findByIdAndUpdate(
       req.query.idOfProduct,
       {
-        danhGia,
+        reviews,
         ratings,
         soLuongDanhGia,
       },

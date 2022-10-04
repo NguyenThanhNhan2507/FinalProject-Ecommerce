@@ -133,7 +133,7 @@ exports.xoaDanhGia = errorServer(async (req, res, next) => {
     const product = await Product.findById(req.query.idOfProduct);
   
     if (!product) {
-      return next(new ErrorHandle("Product not found with this id", 404));
+      return next(new ErrorHandle("Không tìm thấy sản phẩm với id này", 404));
     }
   
     const danhGia = product.reviews.filter(
@@ -142,7 +142,7 @@ exports.xoaDanhGia = errorServer(async (req, res, next) => {
   
     let avg = 0;
   
-    danhGia.forEach((rev) => {
+    reviews.forEach((rev) => {
       avg += rev.rating;
     });
   
@@ -151,15 +151,15 @@ exports.xoaDanhGia = errorServer(async (req, res, next) => {
     if (danhGia.length === 0) {
       ratings = 0;
     } else {
-      ratings = avg / danhGia.length;
+      ratings = avg / reviews.length;
     }
   
-    const soLuongDanhGia = danhGia.length;
+    const soLuongDanhGia = reviews.length;
   
     await Product.findByIdAndUpdate(
-      req.query.idOfProduct,
+      req.query.productId,
       {
-        danhGia,
+        reviews,
         ratings,
         soLuongDanhGia,
       },
