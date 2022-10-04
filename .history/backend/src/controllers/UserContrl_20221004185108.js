@@ -213,20 +213,3 @@ exports.thayDoiQuyenNguoiDung = errorServer(async(req,res,next) =>{
       user
   })
 });
-
-// admin xóa người dùng
-exports.xoaNguoiDung = errorServer(async(req,res,next) =>{
-  
-  const user = await User.findById(req.params.id);
-
-   if(!user){
-       return next(new ErrorHandle("Không tìm thấy người dùng với id này",400));
-   }
-
-   await user.remove();
-
-   res.status(200).json({
-       success: true,
-       message:"Xóa người dùng thành công"
-   })
-});

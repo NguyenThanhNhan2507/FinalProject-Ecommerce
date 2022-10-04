@@ -64,7 +64,7 @@ userdb.methods.comparePassword = async function (enteredPassword) {
 
 userdb.methods.quenMatKhau = function(){
     const doiMatKhau = crypto.randomBytes(20).toString("hex")
-    this.resetPasswordToken = crypto.createHash("sha256").update(doiMatKhau).digest("hex")
+    this.resetPasswordToken = crypto.createHash("nhan123").update(doiMatKhau).digest("hex")
     this.resetPasswordTime = Date.now() + 15 * 60 * 1000
     return doiMatKhau
 } 

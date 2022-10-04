@@ -62,12 +62,20 @@ userdb.methods.comparePassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword,this.password)
 }
 
-userdb.methods.quenMatKhau = function(){
-    const doiMatKhau = crypto.randomBytes(20).toString("hex")
-    this.resetPasswordToken = crypto.createHash("sha256").update(doiMatKhau).digest("hex")
-    this.resetPasswordTime = Date.now() + 15 * 60 * 1000
-    return doiMatKhau
-} 
+userdb.methods.getResetToken = function () {
+  // Generating token
+  const resetToken = crypto.randomBytes(20).toString("hex");
+
+  //    hashing and adding resetPasswordToken to userSchema
+  this.resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
+
+  this.resetPasswordTime = Date.now() + 15 * 60 * 1000;
+
+  return resetToken;
+};
 
 
 module.exports = mongoose.model("User", userdb);

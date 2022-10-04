@@ -14,16 +14,6 @@ module.exports = (err, req, res, next) =>{
         const message = `Duplicate ${Object.keys(err.keyValue)} Entered`;
         err = new ErrorHandle(message, 400);
       }
-
-    if (err.name === "JsonWebTokenError") {
-        const message = `Your url is invalid please try again`;
-        err = new ErrorHandle(message, 400);
-        }
-
-    if (err.name === "TokenExpiredError") {
-            const message = `Your url is expired please try again`;
-            err = new ErrorHandle(message, 400);
-            }
     res.status(err.statusErr).json({
         suscess: false,
         message: err.message

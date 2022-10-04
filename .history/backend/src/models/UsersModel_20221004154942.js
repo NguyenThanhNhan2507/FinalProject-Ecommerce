@@ -46,9 +46,9 @@ const userdb = new mongoose.Schema({
 });
 
 userdb.pre("save", async function(next){
-    if (!this.isModified("password")) {
-    next();
-  }
+  //   if (!this.isModified("password")) {
+  //   next();
+  // }
     this.password = await bcrypt.hash(this.password,10)
 })
 
@@ -64,10 +64,9 @@ userdb.methods.comparePassword = async function (enteredPassword) {
 
 userdb.methods.quenMatKhau = function(){
     const doiMatKhau = crypto.randomBytes(20).toString("hex")
-    this.resetPasswordToken = crypto.createHash("sha256").update(doiMatKhau).digest("hex")
+    this.resetPasswordToken = crypto.createHash("nhan123").update(doiMatKhau).digest("hex")
     this.resetPasswordTime = Date.now() + 15 * 60 * 1000
     return doiMatKhau
 } 
-
 
 module.exports = mongoose.model("User", userdb);
