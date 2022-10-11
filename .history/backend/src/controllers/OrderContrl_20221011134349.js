@@ -50,10 +50,10 @@ exports.oneDatHang = errorServer(async(req,res,next)=>{
 
 // xem tất cả đơn đặt hàng
 exports.tatCaDonDatHang = errorServer(async (req,res,next) =>{
-    const order = await Order.find({user: req.user._id});
+    const allDonDatHang = await Order.find({user: req.user._id});
     res.status(200).json({
         success: true,
-        order
+        allDonDatHang
     });
 });
 
@@ -73,58 +73,57 @@ exports.adminTatCaDonHang = errorServer(async (req,res,next) =>{
         adminDonHang
     });
 });
-// admin cập nhật trạng thái của đơn đặt hàng
-exports.adminCapNhatDatHang = errorServer(async (req, res, next) => {
+// // admin cập nhật trạng thái của đơn đặt hàng
+// exports.adminCapNhatDatHang = errorServer(async (req, res, next) => {
 
-    const order = await Order.findById(req.params.id);
+//     const order = await Order.findById(req.params.id);
   
-    if (!order) {
-      return next(new ErrorHandle("Không tìm thấy đơn đặt hàng", 404));
-    }
+//     if (!order) {
+//       return next(new ErrorHandle("Không tìm thấy đơn đặt hàng", 404));
+//     }
   
-    if (order.orderStatus === "Delivered") {
-      return next(new ErrorHandle("Bạn đã giao đơn hàng này", 400));
-    }
+//     if (order.orderStatus === "Delivered") {
+//       return next(new ErrorHandle("Bạn đã giao đơn hàng này", 400));
+//     }
   
-    if (req.body.status === "Shipped") {
-      order.orderItems.forEach(async (o) => {
-        await updateStock(o.product, o.quantity);
-      });
-    }
-    order.orderStatus = req.body.status;
+//     if (req.body.status === "Shipped") {
+//       order.orderItems.forEach(async (o) => {
+//         await updateStock(o.product, o.quantity);
+//       });
+//     }
+//     order.orderStatus = req.body.status;
   
-    if (req.body.status === "Delivered") {
-      order.deliveredAt = Date.now();
-    }
+//     if (req.body.status === "Delivered") {
+//       order.deliveredAt = Date.now();
+//     }
   
-    await order.save({ validateBeforeSave: false });
-    res.status(200).json({
-      success: true,
-    });
-  });
+//     await order.save({ validateBeforeSave: false });
+//     res.status(200).json({
+//       success: true,
+//     });
+//   });
   
-  async function updateStock(id, quantity) {
+//   async function updateStock(id, quantity) {
       
-    const product = await Product.findById(id);
+//     const product = await Product.findById(id);
   
-    product.Stock -= quantity;
+//     product.Stock -= quantity;
   
-    await product.save({ validateBeforeSave: false });
-  }
+//     await product.save({ validateBeforeSave: false });
+//   }
 
 // admin xóa đơn đặt hàng
+exports.xoaDonDatHang = errorServer(async (req,res,next) =>{
 
+    const deleteOrder = await Order.findById(req.params.id);
+    
+    if(deleteOrder){
+      return next(new ErrorHandle("Order not found with this Id", 404));
+    }
 
+    await deleteOrder.remove();
 
-exports.xoaDonDatHang = errorServer(async (req,res,next)=>{
-  const order = await Order.findById(req.params.id)
-
-  if(!order){
-    return next(new ErrorHandle("Không tìm thấy đơn đặt hàng",404))
-  }
-  await order.remove()
-  res.status(200).json({
-    success: true,
-    message: "đơn hàng đã đc xóa"
-  })
-})
+    res.status(200).json({
+        success: true,
+    });
+});

@@ -50,10 +50,10 @@ exports.oneDatHang = errorServer(async(req,res,next)=>{
 
 // xem tất cả đơn đặt hàng
 exports.tatCaDonDatHang = errorServer(async (req,res,next) =>{
-    const order = await Order.find({user: req.user._id});
+    const allDonDatHang = await Order.find({user: req.user._id});
     res.status(200).json({
         success: true,
-        order
+        allDonDatHang
     });
 });
 
@@ -113,18 +113,18 @@ exports.adminCapNhatDatHang = errorServer(async (req, res, next) => {
   }
 
 // admin xóa đơn đặt hàng
+exports.xoaDonDatHang = errorServer(async (req,res,next) =>{
 
+    const order = await Order.findById(req.params.id);
+    
+    if(!order){
+      return next(new ErrorHandle("Order not found with this Id", 404));
+    }
 
+    await order.remove();
 
-exports.xoaDonDatHang = errorServer(async (req,res,next)=>{
-  const order = await Order.findById(req.params.id)
-
-  if(!order){
-    return next(new ErrorHandle("Không tìm thấy đơn đặt hàng",404))
-  }
-  await order.remove()
-  res.status(200).json({
-    success: true,
-    message: "đơn hàng đã đc xóa"
-  })
-})
+    res.status(200).json({
+        success: true,
+        order
+    });
+});
