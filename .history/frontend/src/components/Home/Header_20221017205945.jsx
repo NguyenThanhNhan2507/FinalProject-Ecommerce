@@ -111,7 +111,7 @@ const Header = () => {
                 <li>Home</li>
               </a>
               <a href="/about">
-                <li>About</li>
+                <li style={{fontSize:60}}>About</li>
               </a>
               <a href="/Products">
                 <li>Products</li>

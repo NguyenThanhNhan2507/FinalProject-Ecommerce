@@ -41,7 +41,7 @@ const Header = () => {
                 alignItems: "center",
                 height: "30px",
                 width: "100%",
-                background: "#53C08E",
+                background: "black",
                 overflow: "hidden",
               }}
             >
@@ -93,7 +93,7 @@ const Header = () => {
           <div
            className="navigation"
            style={{
-             padding:"0px 350px"
+             padding:"0px 50px"
            }}
           >
             <ul

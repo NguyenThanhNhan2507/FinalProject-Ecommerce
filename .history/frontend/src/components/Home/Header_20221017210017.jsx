@@ -111,13 +111,13 @@ const Header = () => {
                 <li>Home</li>
               </a>
               <a href="/about">
-                <li>About</li>
+                <li style={{fontSize:15}}>About</li>
               </a>
               <a href="/Products">
                 <li>Products</li>
               </a>
               <a href="/creator">
-                <li>Become A Seller</li>
+                <li style={{fontSize:13}}>Become A Seller</li>
               </a>
               <a href="/faq">
                 <li>Users Rules</li>

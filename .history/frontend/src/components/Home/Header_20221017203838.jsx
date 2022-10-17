@@ -1,7 +1,6 @@
 import React, {useRef} from 'react'
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux'
-import logo from '../../assets/images/logo.png'
 import "./Header.css"
 
 const Header = () => {
@@ -13,7 +12,7 @@ const Header = () => {
           <div className="logo pxy__10">
             <a href="/">
               <img
-                src={logo}
+                src="http://wp.alithemes.com/html/nest/demo/assets/imgs/theme/logo.svg"
                 alt=""
                 className="logo"
                 style={{
@@ -41,7 +40,7 @@ const Header = () => {
                 alignItems: "center",
                 height: "30px",
                 width: "100%",
-                background: "#53C08E",
+                background: "tomato",
                 overflow: "hidden",
               }}
             >
@@ -50,7 +49,8 @@ const Header = () => {
                   color: "#fff",
                 }}
               >
-                Chào mừng bạn đến với cửa hàng! Bạn có thể mua bất cứ thứ gì mà bạn thích...
+                Welcome to our shop...You can find anything in here as your
+                favourites..
               </span>
             </div>
           </div>
@@ -93,7 +93,7 @@ const Header = () => {
           <div
            className="navigation"
            style={{
-             padding:"0px 350px"
+             padding:"0px 50px"
            }}
           >
             <ul

@@ -41,7 +41,7 @@ const Header = () => {
                 alignItems: "center",
                 height: "30px",
                 width: "100%",
-                background: "#53C08E",
+                background: "tomato",
                 overflow: "hidden",
               }}
             >
@@ -50,7 +50,8 @@ const Header = () => {
                   color: "#fff",
                 }}
               >
-                Chào mừng bạn đến với cửa hàng! Bạn có thể mua bất cứ thứ gì mà bạn thích...
+                Welcome to our shop...You can find anything in here as your
+                favourites..
               </span>
             </div>
           </div>
@@ -93,7 +94,7 @@ const Header = () => {
           <div
            className="navigation"
            style={{
-             padding:"0px 350px"
+             padding:"0px 50px"
            }}
           >
             <ul

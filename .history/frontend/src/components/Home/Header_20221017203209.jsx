@@ -1,7 +1,6 @@
 import React, {useRef} from 'react'
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux'
-import logo from '../../assets/images/logo.png'
 import "./Header.css"
 
 const Header = () => {
@@ -11,9 +10,9 @@ const Header = () => {
         <div className="Header__topbar space__beetween">
           {/* Topbar Left */}
           <div className="logo pxy__10">
-            <a href="/">
+            <Link to="/">
               <img
-                src={logo}
+                src="http://wp.alithemes.com/html/nest/demo/assets/imgs/theme/logo.svg"
                 alt=""
                 className="logo"
                 style={{
@@ -23,7 +22,7 @@ const Header = () => {
                   cursor: "pointer",
                 }}
               />
-            </a>
+            </Link>
           </div>
           {/* Topbar Middle */}
     
@@ -41,7 +40,7 @@ const Header = () => {
                 alignItems: "center",
                 height: "30px",
                 width: "100%",
-                background: "#53C08E",
+                background: "tomato",
                 overflow: "hidden",
               }}
             >
@@ -50,7 +49,8 @@ const Header = () => {
                   color: "#fff",
                 }}
               >
-                Chào mừng bạn đến với cửa hàng! Bạn có thể mua bất cứ thứ gì mà bạn thích...
+                Welcome to our shop...You can find anything in here as your
+                favourites..
               </span>
             </div>
           </div>
@@ -84,7 +84,7 @@ const Header = () => {
             >
               <strong style={{
                 padding:"0px 5px"
-              }}>Email:</strong> nhandaica125@gmail.com
+              }}>Email:</strong> temp123@gmail.com
             </span>
           </div>
         </div>
@@ -93,7 +93,7 @@ const Header = () => {
           <div
            className="navigation"
            style={{
-             padding:"0px 350px"
+             padding:"0px 50px"
            }}
           >
             <ul
@@ -107,24 +107,24 @@ const Header = () => {
                 justifyContent: "center",
               }}
             >
-              <a href="/">
+              <Link to="/">
                 <li>Home</li>
-              </a>
-              <a href="/about">
+              </Link>
+              <Link to="/about">
                 <li>About</li>
-              </a>
-              <a href="/Products">
+              </Link>
+              <Link to="/Products">
                 <li>Products</li>
-              </a>
-              <a href="/creator">
+              </Link>
+              <Link to="/creator">
                 <li>Become A Seller</li>
-              </a>
-              <a href="/faq">
+              </Link>
+              <Link to="/faq">
                 <li>Users Rules</li>
-              </a>
-              <a href="/contact">
+              </Link>
+              <Link to="/contact">
                 <li>Contact</li>
-              </a>
+              </Link>
             </ul>
           </div>
     
@@ -144,7 +144,7 @@ const Header = () => {
               </a>
             </div>
             <div className="heart__products flex pointer relative">
-              <a href="/favourites">
+              <a to="/favourites">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25"
@@ -176,7 +176,7 @@ const Header = () => {
             </div>
             <div className="cart__items flex align__items__center">
               <div className="cart__items flex pointer relative">
-                <a href="/cart">
+                <a to="/cart">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
