@@ -34,7 +34,7 @@ iframe {
 h1,h2,h3,h4,h5,h6,span,p,strong{
   font-family: sans-serif;
 }
-/* div {overflow: hidden;} */
+div {overflow: hidden;}
 h6{
   font-size: 15px;
 }
@@ -63,11 +63,11 @@ h6{
 }
 .relative{
   position: relative;
-  /* overflow: visible!important; */
-}
-/* .rightOption.flex.align__items__center {
   overflow: visible!important;
-} */
+}
+.rightOption.flex.align__items__center {
+  overflow: visible!important;
+}
 li{
   padding: 0px 15px;
   color: #000;
@@ -158,7 +158,7 @@ label.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLab
   transition: .4s all;
   overflow: visible!important;
 }
-/* .cart__items.flex.align__items__center {
+.cart__items.flex.align__items__center {
   overflow: visible!important;
 }
 .bottomOption > a > div {
@@ -166,7 +166,7 @@ label.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLab
 }
 .Description p{
   text-align: start;
-} */
+}
 .navbar.flex.pz__10.active{
   position: fixed;
   background-color: #fff;
@@ -177,9 +177,9 @@ label.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLab
   left: 0;
   padding: 1.2vmax 0;
 }
-/* .dashboard{
+.dashboard{
   overflow: visible!important;
-} */
+}
 label.MuiRating-label {
   margin-top: .5vmax;
   animation: none;
@@ -197,14 +197,14 @@ label.MuiRating-label {
   width: 100%;
   overflow: hidden;
 }
-/* .dasboard__mobile{
+.dasboard__mobile{
   display: none;
-} */
+}
 @media only screen and (max-width: 768px) {
   .Header{
     display: none;
   }
-  /* .dashboard{
+  .dashboard{
     display: none!important;
   }
   .dasboard__mobile{
@@ -261,7 +261,7 @@ label.MuiRating-label {
   }
   .banner, .bgImg{
     height: unset!important;
-  } */
+  }
   .Footer.flex.space__around.pz__15 {
     flex-direction: column;
     align-items: center;

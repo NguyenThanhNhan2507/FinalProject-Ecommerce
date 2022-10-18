@@ -1,1 +1,0 @@
-const express = const packageName = require('packageName');
