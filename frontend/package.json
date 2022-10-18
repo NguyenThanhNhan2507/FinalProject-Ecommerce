@@ -11,17 +11,17 @@
     "@mui/icons-material": "^5.5.0",
     "@stripe/react-stripe-js": "^1.7.0",
     "@stripe/stripe-js": "^1.26.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.21.1",
     "chart.js": "^3.6.2",
     "country-state-city": "^3.0.1",
     "npm": "^8.7.0",
-    "react": "^18.2.0",
+    "react": "^17.0.2",
     "react-alert": "^7.0.3",
     "react-chartjs-2": "^4.0.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-js-pagination": "^3.0.3",
     "react-material-ui-carousel": "^2.3.1",
@@ -58,6 +58,7 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
+    ],
+    "proxy": "http://192.168.137.1:4000/"
   }
 }
