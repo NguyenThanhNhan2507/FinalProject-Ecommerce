@@ -7,37 +7,51 @@ const crypto = require("crypto");
 const cloudinary = require("cloudinary");
 
 // Register user
-exports.createUser = catchAsyncErrors(async (req, res, next) => {
-  try {
-    const { name, email, password, avatar } = req.body;
+// exports.createUser = catchAsyncErrors(async (req, res, next) => {
+//   try {
+//     const { name, email, password, avatar } = req.body;
 
-    let user = await User.findOne({ email });
-    if (user) {
-      return res
-        .status(400)
-        .json({ success: false, message: "User already exists" });
-    }
+//     let user = await User.findOne({ email });
+//     if (user) {
+//       return res
+//         .status(400)
+//         .json({ success: false, message: "User already exists" });
+//     }
 
-    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
-      folder: "avatars",
-    });
+//     const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+//       folder: "avatars",
+//     });
 
-    user = await User.create({
+//     user = await User.create({
+//       name,
+//       email,
+//       password,
+//       avatar: { public_id: myCloud.public_id, url: myCloud.secure_url },
+//     });
+    
+//     sendToken(user, 201, res);
+
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       message: error.message,
+//     });
+//   }
+// });
+
+exports.createUser = catchAsyncErrors(async (req, res,next)=>{
+  const{name,email,password}= req.body
+  const user = await User.create({
       name,
       email,
       password,
-      avatar: { public_id: myCloud.public_id, url: myCloud.secure_url },
-    });
-    
-    sendToken(user, 201, res);
-
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-});
+      avatar:{
+          public_id: "nhandeptrai.com",
+          url: "nhandeptrai.com"
+      }
+  })
+  sendToken(user,201,res)
+})
 
 // Login User
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
@@ -196,42 +210,58 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 // Update User Profile
-exports.updateProfile = catchAsyncErrors(async(req,res,next) =>{
-    const newUserData = {
-        name: req.body.name,
-        email: req.body.email,
-    };
+// exports.updateProfile = catchAsyncErrors(async(req,res,next) =>{
+//     const newUserData = {
+//         name: req.body.name,
+//         email: req.body.email,
+//     };
 
-   if (req.body.avatar !== "") {
-    const user = await User.findById(req.user.id);
+//    if (req.body.avatar !== "") {
+//     const user = await User.findById(req.user.id);
 
-    const imageId = user.avatar.public_id;
+//     const imageId = user.avatar.public_id;
 
-    await cloudinary.v2.uploader.destroy(imageId);
+//     await cloudinary.v2.uploader.destroy(imageId);
 
-    const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-      folder: "avatars",
-      width: 150,
-      crop: "scale",
-    });
-    newUserData.avatar = {
-      public_id: myCloud.public_id,
-      url: myCloud.secure_url,
-    };
+//     const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+//       folder: "avatars",
+//       width: 150,
+//       crop: "scale",
+//     });
+//     newUserData.avatar = {
+//       public_id: myCloud.public_id,
+//       url: myCloud.secure_url,
+//     };
+//   }
+
+//   const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+//     new: true,
+//     runValidator: true,
+//     useFindAndModify: false,
+//   });
+
+//   res.status(200).json({
+//     success: true,
+//   });
+// });
+
+exports.updateProfile = catchAsyncErrors(async(req,res,next)=>{
+  const newUserData ={
+    name: req.body.name,
+    email: req.body.email,
+
   }
-
-  const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+  const user = await User.findByIdAndUpdate(req.user.id,thongTinMoi,{
     new: true,
-    runValidator: true,
-    useFindAndModify: false,
-  });
+    runValidators: true,
+    userFindAndModify: false,
+  })
 
   res.status(200).json({
     success: true,
-  });
-});
+  })
 
-
+})
 
 
 // Get All users ---Admin

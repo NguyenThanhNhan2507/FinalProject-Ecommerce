@@ -11,7 +11,6 @@ import UserDb from './others/UserDB';
 import ProtectRouter from './router/ProtectRouter';
 import UserProfile from './component/pageuser/UserProfile'
 import ChangePassword from './component/pageuser/ChangePassword';
-import UpdateProfile from './component/pageuser/UpdateProfile';
 
 function App() {
 
@@ -34,8 +33,7 @@ function App() {
          <Route exact path="/product/:id" component={ProductDetail} />
          <Route exact path="/login" component={LoginAndSingUp} />
          <ProtectRouter exact path="/me" component={UserProfile}/>
-         <ProtectRouter exact path="/me/update" component={ChangePassword}/>
-         <ProtectRouter exact path="/me/update/info" component={UpdateProfile}/>
+         <ProtectRouter exact path="/me" component={ChangePassword}/>
  
        </Switch>
      </Router>
