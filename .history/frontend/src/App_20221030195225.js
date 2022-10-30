@@ -34,7 +34,6 @@ import CreateProducts from './component/Admin/CreateProducts';
 import ProductsAdmin from './component/Admin/ProductsAdmin';
 import ProductEdit from './component/Admin/ProductEdit';
 import OrderAdmin from './component/Admin/OrderAdmin';
-import EditOrder from './component/Admin/EditOrder';
 
 function App() {
 
@@ -88,7 +87,6 @@ function App() {
          <ProtectRouter isAdmin={true} exact path="/admin/products" component={ProductsAdmin} />
          <ProtectRouter isAdmin={true} exact path="/edit/product/:id" component={ProductEdit} />
          <ProtectRouter isAdmin={true} exact path="/admin/orders" component={OrderAdmin} />
-         <ProtectRouter isAdmin={true} exact path="/admin/order/:id" component={EditOrder} />
           
           
        </Switch>

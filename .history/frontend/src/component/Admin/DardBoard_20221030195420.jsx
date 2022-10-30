@@ -37,11 +37,11 @@ const DardBoard = () => {
         // dispatch(getAllUsers());
       }, [dispatch]);    
 
-    let totalAmount = 0;
-      orders &&
-        orders.forEach((item) => {
-          totalAmount += item.totalPrice;
-        });
+    // let totalAmount = 0;
+    //   orders &&
+    //     orders.forEach((item) => {
+    //       totalAmount += item.totalPrice;
+    //     });
 
     const lineState = {
         labels: ["Initial Amount", "Amount Earned"],
@@ -81,7 +81,7 @@ const DardBoard = () => {
           <div className="dashboardSummary">
             <div>
               <p>
-                Total Amount <br /> ${totalAmount}
+                {/* Total Amount <br /> ${totalAmount} */}
               </p>
             </div>
             <div className="dashboardSummaryBox2">
