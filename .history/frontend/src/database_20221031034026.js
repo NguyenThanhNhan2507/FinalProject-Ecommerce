@@ -10,21 +10,16 @@ import {
   productReviewsReducer,
   productsReducer,
 } from "./reducers/ProductReducer";
-import { allUsersReducer, forgotPasswordReducer, profileReducer, userDetailsReducer, userReducer } from "./reducers/userReducer";
+import { allUsersReducer, profileReducer, userDetailsReducer, userReducer } from "./reducers/userReducer";
 import { cartReducer } from "./reducers/CartReducer";
 import { favouriteReducer } from "./reducers/FavouriteReducer";
-import {
-  allOrdersReducer,
-  myOrdersReducer,
-  newOrderReducer,
-  orderDetailsReducer,
-  orderReducer,
-} from "./reducers/OrderReducer";
+import { allOrdersReducer, myOrdersReducer, newOrderReducer, orderDetailsReducer, orderReducer } from "./reducers/OrderReducer";
+
 
 const reducer = combineReducers({
   products: productsReducer,
-  productDetails: productDetailsReducer,
   user: userReducer,
+  productDetails: productDetailsReducer,
   profile: profileReducer,
   cart: cartReducer,
   favourite: favouriteReducer,
@@ -62,10 +57,10 @@ let initialState = {
 
 const middleWare = [thunk];
 
-const store = createStore(
+const database = createStore(
   reducer,
   initialState,
   composeWithDevTools(applyMiddleware(...middleWare))
 );
 
-export default store;
+export default database;
