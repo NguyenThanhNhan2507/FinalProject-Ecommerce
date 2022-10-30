@@ -69,9 +69,11 @@ const Header = () => {
           >
             Chào mừng bạn đến với kỷ nguyên vô tận, và đây là florentino.
           </span>
+          
         </div>
+        
       </div>
-
+            
       <div
         className="flex align__items__center"
         style={{

@@ -78,48 +78,7 @@ const Header = () => {
           margin: "0px 10px",
         }}
       >
-      </div>
-    </div>
-    {/* Header Navbar */}
-    <div className="navbar flex pz__10 space__beetween" ref={switcherTab}>
-      <div
-       className="navigation"
-       style={{
-         padding:"0px 50px"
-       }}
-      >
-        <ul
-          style={{
-            fontFamily: "sans-serif",
-            cursor: "pointer",
-            display: "flex",
-            listStyle: "none",
-            width: "100%",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Link to="/">
-            <li>Home</li>
-          </Link>
-          <Link to="/about">
-            <li>About</li>
-          </Link>
-          <Link to="/Products">
-            <li>Products</li>
-          </Link>
-          <Link to="/creator">
-            <li>Seller</li>
-          </Link>
-          <Link to="/faq">
-            <li>User support</li>
-          </Link>
-          <Link to="/contact">
-            <li>Contact</li>
-          </Link>
-        </ul>
-      </div>
-
+      
       <div className="rightOption flex align__items__center">
         <div>
           <Link to="/search">
@@ -213,6 +172,46 @@ const Header = () => {
             </svg>
           </Link>
         </div>
+      </div>
+    </div>
+    {/* Header Navbar */}
+    <div className="navbar flex pz__10 space__beetween" ref={switcherTab}>
+      <div
+       className="navigation"
+       style={{
+         padding:"0px 50px"
+       }}
+      >
+        <ul
+          style={{
+            fontFamily: "sans-serif",
+            cursor: "pointer",
+            display: "flex",
+            listStyle: "none",
+            width: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/about">
+            <li>About</li>
+          </Link>
+          <Link to="/Products">
+            <li>Products</li>
+          </Link>
+          <Link to="/creator">
+            <li>Seller</li>
+          </Link>
+          <Link to="/faq">
+            <li>User support</li>
+          </Link>
+          <Link to="/contact">
+            <li>Contact</li>
+          </Link>
+        </ul>
       </div>
     </div>
   </div>
