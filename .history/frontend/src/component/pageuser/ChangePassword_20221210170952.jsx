@@ -8,7 +8,6 @@ import LockIcon from "@material-ui/icons/Lock";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { clearErrors, updatePassword } from "../../actions/userAction";
 import { UPDATE_PASSWORD_RESET } from "../../constans/userContans";
-import TapMobile from "../../others/TapMobile";
 
 const ChangePassword = ({ history }) => {
 
@@ -104,7 +103,7 @@ const dispatch = useDispatch();
           </div>
         </>
       )}
-        <TapMobile/>
+      {/* <BottomTab /> */}
     </>
   );
 };

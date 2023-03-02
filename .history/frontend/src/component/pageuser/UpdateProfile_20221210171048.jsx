@@ -131,7 +131,6 @@ const UpdateProfile = ({history}) => {
           </div>
             </>
         )}
-        <TapMobile/>
         <ToastContainer 
         position="bottom-center"
         autoClose={5000}
@@ -143,6 +142,7 @@ const UpdateProfile = ({history}) => {
         draggable
         pauseOnHover
         />
+        <TapMobile/>
         </>
     )
 }

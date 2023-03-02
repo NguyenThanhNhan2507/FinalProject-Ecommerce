@@ -141,7 +141,7 @@ const Products = ({ match }) => {
               }
              
              </div>
-             
+            
               <div
                 className="pagination__box"
                 style={{

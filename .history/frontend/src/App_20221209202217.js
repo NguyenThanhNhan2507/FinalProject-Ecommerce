@@ -55,6 +55,7 @@ function App() {
   }
   useEffect(() => {
     database.dispatch(loadUser());
+    
     getStripeApiKey();
   }, []);
   return (

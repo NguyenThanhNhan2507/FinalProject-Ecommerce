@@ -6,7 +6,7 @@ import Loader from "../../others/Loader";
 import LoadingData from "../../others/LoadingData";
 import ProductCard from "./ProductCard";
 import { clearErrors, getProduct } from "../../actions/ProductActions";
-import Pagination from "react-js-pagination";
+import {Pagination} from "react-js-pagination";
 import "./Products.css";
 import Typography from"@material-ui/core/Typography"
 import TapMobile from "../../others/TapMobile";
@@ -141,7 +141,7 @@ const Products = ({ match }) => {
               }
              
              </div>
-             
+              {resultPerPage < productsCount &&(
               <div
                 className="pagination__box"
                 style={{
@@ -166,6 +166,7 @@ const Products = ({ match }) => {
                   activeLinkClass="pageLinkActive"
                 />
               </div>
+              )}
           </div>
           <Footer />
           <TapMobile />

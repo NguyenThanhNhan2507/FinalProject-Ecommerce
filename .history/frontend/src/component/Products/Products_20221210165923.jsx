@@ -141,7 +141,7 @@ const Products = ({ match }) => {
               }
              
              </div>
-             
+              {resultPerPage < productsCount &&(
               <div
                 className="pagination__box"
                 style={{
@@ -166,6 +166,7 @@ const Products = ({ match }) => {
                   activeLinkClass="pageLinkActive"
                 />
               </div>
+              )}
           </div>
           <Footer />
           <TapMobile />

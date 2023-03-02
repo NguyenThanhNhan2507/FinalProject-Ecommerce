@@ -41,20 +41,20 @@ exports.create_Product = catchAsyncErrors(async (req, res, next) => {
 
 // get all product in page product
 exports.get_Product = catchAsyncErrors(async (req, res) => {
-  const resultPerPage  = 8;
+  const ketQuaTungTrang = 8;
 
-  const productsCount  = await Product.countDocuments();
+  const giaSanPham = await Product.countDocuments();
 
   const feature = new Features(Product.find(), req.query)
     .search()
     .filter()
-    .pagination(resultPerPage );
+    .pagination(ketQuaTungTrang);
   const products = await feature.query;
   res.status(200).json({
     success: true,
     products,
-    productsCount ,
-    resultPerPage,
+    giaSanPham,
+    ketQuaTungTrang,
   });
 });
 
